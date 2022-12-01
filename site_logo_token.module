@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Token callbacks for the site_logo_token module.
+ */
+
+/**
+ * Implements hook_token_info().
+
+ */
+function site_logo_token_token_info() {
+  $site['logo'] = array(
+    'name' => t('Logo'),
+    'description' => t('The logo of the site.'),
+  );
+  // Return associative array of tokens & token types
+  return array(
+    'tokens' => array(
+      'site' => $site,
+    ),
+  );
+
+}
+/**
+ * Implements hook_tokens().
+ */
+function site_logo_token_tokens($type, $tokens, $data = array(), $options = array()) {
+  $sanitize = !empty($options['sanitize']);
+  $replacements = array();
+
+  // Check if token type is node
+  if($type == 'site'){
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'logo':
+          $logo = config_get('system.core', 'site_logo_path');
+          $replacements[$original] = $sanitize ? check_plain($logo) : $logo;
+          break;
+      }
+    }
+  }
+
+
+  return $replacements;
+}

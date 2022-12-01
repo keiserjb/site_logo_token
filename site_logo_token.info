@@ -1,0 +1,7 @@
+name = Site Logo Token
+description = Provides a site logo token.
+type = module
+backdrop = 1.x
+
+
+
