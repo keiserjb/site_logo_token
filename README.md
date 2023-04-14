@@ -1,4 +1,4 @@
-# SITE LOGO TOKEN
+# Site Logo Token
 
 Simple module that creates a token for the site logo.
 
