@@ -1,4 +1,4 @@
-# Site Logo Token
+# [Site Logo Token](https://github.com/keiserjb/site_logo_token)
 
 Simple module that creates a token for the site logo.
 
